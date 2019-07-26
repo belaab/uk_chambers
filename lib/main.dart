@@ -12,7 +12,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ChambersList extends StatelessWidget {
+class ChambersList extends StatefulWidget {
+  @override
+  ChambersListState createState() => ChambersListState();
+}
+
+class ChambersListState extends State<ChambersList> {
   List<String> chambersList = ["First", "Second", "Third"];
 
   @override
@@ -22,14 +27,15 @@ class ChambersList extends StatelessWidget {
           title: new Text("Chambers list"),
         ),
         body: chambersListItems() // ListView.builder() shall be used here.
-        );
+    );
   }
 
   ListView chambersListItems() {
     return new ListView.builder(
-          itemCount: chambersList.length,
-          itemBuilder: (BuildContext ctxt, int index) {
-        return new Text(chambersList[index]);
-      });
+        padding: const EdgeInsets.all(16),
+        itemCount: chambersList.length,
+        itemBuilder: (BuildContext ctxt, int index) {
+          return new Text(chambersList[index]);
+        });
   }
 }
