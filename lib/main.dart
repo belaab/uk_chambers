@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'booking_screen.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:datetime_picker_formfield/time_picker_formfield.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +22,7 @@ class ChambersList extends StatefulWidget {
 }
 
 class ChambersListState extends State<ChambersList> {
-  List<String> chambersList = ["First", "Second", "Third"];
+  List<String> chambersList = ["Green", "White", "BIG"];
 
   @override
   Widget build(BuildContext ctxt) {
@@ -39,8 +41,7 @@ class ChambersListState extends State<ChambersList> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => BookingScreen(chambersList[index])),
+              MaterialPageRoute(builder: (context) =>  BookingScreen(chambersList[index])),
             );
           },
         );
