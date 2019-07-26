@@ -34,8 +34,11 @@ class ChambersListState extends State<ChambersList> {
     return new ListView.separated(
       padding: const EdgeInsets.all(16),
       itemCount: chambersList.length,
-      itemBuilder: (BuildContext ctxt, int index) {
-        return new Text(chambersList[index]);
+      itemBuilder: (context, index) {
+        return Container(
+          height: 50,
+          child: Center(child: Text(chambersList[index])),
+        );
       },
       separatorBuilder: (BuildContext context, int index) {
         return Divider();
