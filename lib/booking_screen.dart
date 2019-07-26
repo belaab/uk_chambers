@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SecondRoute extends StatelessWidget {
+class BookingScreen extends StatelessWidget {
+  final String title;
+
+  BookingScreen(this.title);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Route"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: Text('Go back!'),
-        ),
+        title: Text(title),
       ),
     );
   }
