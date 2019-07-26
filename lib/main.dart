@@ -23,9 +23,6 @@ class ChambersListState extends State<ChambersList> {
   @override
   Widget build(BuildContext ctxt) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Chambers list"),
-        ),
         body: chambersListItems() // ListView.builder() shall be used here.
         );
   }
@@ -34,9 +31,10 @@ class ChambersListState extends State<ChambersList> {
     return new ListView.separated(
       padding: const EdgeInsets.all(16),
       itemCount: chambersList.length,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return Container(
-          height: 50,
+          height: MediaQuery.of(context).size.height/3 * 0.9,
           child: Center(child: Text(chambersList[index])),
         );
       },
