@@ -27,15 +27,19 @@ class ChambersListState extends State<ChambersList> {
           title: new Text("Chambers list"),
         ),
         body: chambersListItems() // ListView.builder() shall be used here.
-    );
+        );
   }
 
   ListView chambersListItems() {
-    return new ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: chambersList.length,
-        itemBuilder: (BuildContext ctxt, int index) {
-          return new Text(chambersList[index]);
-        });
+    return new ListView.separated(
+      padding: const EdgeInsets.all(16),
+      itemCount: chambersList.length,
+      itemBuilder: (BuildContext ctxt, int index) {
+        return new Text(chambersList[index]);
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return Divider();
+      },
+    );
   }
 }
