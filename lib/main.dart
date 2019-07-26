@@ -29,17 +29,22 @@ class ChambersListState extends State<ChambersList> {
 
   ListView chambersListItems() {
     return new ListView.separated(
-      padding: const EdgeInsets.all(16),
       itemCount: chambersList.length,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return Container(
-          height: MediaQuery.of(context).size.height/3 * 0.9,
+          height: MediaQuery.of(context).size.height/3 - 6,
           child: Center(child: Text(chambersList[index])),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/uk-logo.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
         );
       },
       separatorBuilder: (BuildContext context, int index) {
-        return Divider();
+        return Divider(height: 2,);
       },
     );
   }
