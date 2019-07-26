@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'booking_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -32,20 +34,32 @@ class ChambersListState extends State<ChambersList> {
       itemCount: chambersList.length,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        return Container(
-          height: MediaQuery.of(context).size.height/3 - 6,
-          child: Center(child: Text(chambersList[index])),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/uk-logo.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
+        return   InkWell(
+          child: singleRowContainer(context, index),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondRoute()),
+            );
+          },
         );
       },
       separatorBuilder: (BuildContext context, int index) {
         return Divider(height: 2,);
       },
     );
+  }
+
+  Container singleRowContainer(BuildContext context, int index) {
+    return Container(
+        height: MediaQuery.of(context).size.height/3 - 6,
+        child: Center(child: Text(chambersList[index])),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/uk-logo.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
   }
 }
